@@ -16,40 +16,40 @@ const CalculatorButton = (props) => {
 const CalcPanel = (props) => {
   return <div>
     <div>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="AC"/>
+      <CalculatorButton id="clear" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="AC"/>
       <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="+/-"/>
       <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="%"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="/"/>
+      <CalculatorButton id="divide" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="/"/>
     </div>
     <div>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="7"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="8"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="9"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="*"/>
+      <CalculatorButton id="seven" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="7"/>
+      <CalculatorButton id="eight" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="8"/>
+      <CalculatorButton id="nine" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="9"/>
+      <CalculatorButton id="multiply" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="*"/>
     </div>
     <div>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="4"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="5"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="6"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="-"/>      
+      <CalculatorButton id="four" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="4"/>
+      <CalculatorButton id="five" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="5"/>
+      <CalculatorButton id="six" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="6"/>
+      <CalculatorButton id="subtract" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="-"/>      
     </div>
     <div>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="1"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="2"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="3"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="+"/>            
+      <CalculatorButton id="one" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="1"/>
+      <CalculatorButton id="two" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="2"/>
+      <CalculatorButton id="three" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="3"/>
+      <CalculatorButton id="add" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="+"/>            
     </div>
     <div>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="0"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="."/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="="/>
+      <CalculatorButton id="zero" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="0"/>
+      <CalculatorButton id="decimal: handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="."/>
+      <CalculatorButton id="equals" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="="/>
     </div>
 
   </div>
 }
 
 const CalculatorDisplay = (props) => {
-  return <div className="calculatorDisplay">
+  return <div className="calculatorDisplay" id="display">
       {props.show}
   </div>
 }
