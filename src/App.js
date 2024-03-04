@@ -15,12 +15,24 @@ const CalcPanel = (props) => {
   </div>
 }
 
+const CalculatorDisplay = (props) => {
+  return <div>
+      DISPLAY
+  </div>
+}
+
+const Calculator = (props) => {
+  return <div>
+    <CalculatorDisplay />
+    <CalcPanel />
+  </div>
+}
 
 
 function App() {
   return (
     <div className="App">
-        hello world
+        <Calculator />
     </div>
   );
 }
