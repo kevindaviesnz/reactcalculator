@@ -16,27 +16,32 @@ const CalculatorButton = (props) => {
 const CalcPanel = (props) => {
   return <div>
     <div>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="1"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="2"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="3"/>
-    </div>
-    <div>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="4"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="5"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="6"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="AC"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="+/-"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="%"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="/"/>
     </div>
     <div>
       <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="7"/>
       <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="8"/>
       <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="9"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="*"/>
     </div>
     <div>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="+"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="-"/>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="/"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="4"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="5"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="6"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="-"/>      
     </div>
     <div>
-      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="C"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="1"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="2"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="3"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="+"/>            
+    </div>
+    <div>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="0"/>
+      <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="."/>
       <CalculatorButton handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="="/>
     </div>
 
@@ -44,7 +49,7 @@ const CalcPanel = (props) => {
 }
 
 const CalculatorDisplay = (props) => {
-  return <div>
+  return <div className="calculatorDisplay">
       {props.show}
   </div>
 }
@@ -65,7 +70,7 @@ class Calculator extends React.Component {
 
     const button_pressed = event.target.value
     
-    if (button_pressed === 'C') {
+    if (button_pressed === 'AC') {
       this.setState(prevState => {
         return {
           button_presses: [],
@@ -81,14 +86,16 @@ class Calculator extends React.Component {
       })
     } else if ("=" === event.target.value) {
       this.setState(prevState => {
-        const s = prevState.button_presses.join('')
-        const sum = math.evaluate(prevState.button_presses.join('')) + ""
-        return {
-          button_presses: [],
-          display: sum
+        if (prevState.button_presses.length > 0) {
+          const s = prevState.button_presses.join('')
+          const sum = math.evaluate(prevState.button_presses.join('')) + ""
+          return {
+            button_presses: [],
+            display: sum
+          }
         }
       })
-    } else {
+    } else if (event.target.value * 1 > -1 && event.target.value * 1 < 10) {
       this.setState(prevState => {
         const last_button_pressed = prevState.button_presses[prevState.button_presses.length-1]
         return {
