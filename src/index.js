@@ -5,27 +5,43 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
-class Calculations extends React.Component {
+class CalculatorEngine extends React.Component {
   
   constructor(props) {
     super(props)
-    {/* Need more descriptive name than "history" */}
     this.state = {
-      history:[] 
+      cache:[],
+      display:"READY" 
     }
   }
 
   handleCalculatorButtonClick(event) {
+    
     const button_pressed = event.target.value
+    
     if (button_pressed === 'C') {
-      this.setState({
-        history: []
+      this.setState(prevState => {
+        return {
+          cache: [],
+          display:""
+        }
+      })
+
+    } else if (["+", "-", "/", "*"].includes(event.target.value)) {
+      this.setState(prevState => {
+        return {
+          cache: [...prevState.cache, event.target.value]
+        }
+      })
+    } else {
+      this.setState(prevState => {
+        return {
+          cache: [...prevState.cache, event.target.value],
+          display: event.target.value
+        }
       })
     }
 
-    if (["+", "-", "/", "*"].includes(event.target.value)) {
-      this.state.history.push(event.target.value)
-    }
   }
   
 }
@@ -33,7 +49,7 @@ class Calculations extends React.Component {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App calculatorEngine={CalculatorEngine}/>
   </React.StrictMode>
 );
 
