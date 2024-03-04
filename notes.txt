@@ -1,0 +1,25 @@
+https://www.freecodecamp.org/news/get-started-with-react-for-beginners/
+
+# @see https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-random-quote-machine
+# @see https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-javascript-calculator
+
+npm update -g
+npx create-react-app my-app
+cd my-app
+npm start
+
+Github:
+
+echo "# reactcalculator" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/kevindaviesnz/reactcalculator.git
+git push -u origin main
+
+
+Running server:
+$ npx http-server -p 3000
+or
+$ python -m http.server 3000
