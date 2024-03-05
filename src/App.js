@@ -79,6 +79,10 @@ class Calculator extends React.Component {
       })
     } else if (["+", "-", "/", "*"].includes(event.target.value)) {
       this.setState(prevState => {
+        // Prevent "* +" etc
+        if (["+", "-", "/", "*"].includes(prevState.button_presses[prevState.button_presses.length-1])) {
+            prevState.button_presses.pop()
+        }
         return {
           button_presses: [...prevState.button_presses, event.target.value],
           display: prevState.display
@@ -87,10 +91,10 @@ class Calculator extends React.Component {
     } else if ("=" === event.target.value) {
       this.setState(prevState => {
         if (prevState.button_presses.length > 0) {
-          const s = prevState.button_presses.join('')
           const sum = math.evaluate(prevState.button_presses.join('')) + ""
+          console.log('Got sum ' + sum)
           return {
-            button_presses: [],
+            button_presses: [sum * 1, "+"],
             display: sum
           }
         }
