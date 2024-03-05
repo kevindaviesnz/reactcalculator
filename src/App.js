@@ -41,7 +41,7 @@ const CalcPanel = (props) => {
     </div>
     <div>
       <CalculatorButton id="zero" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="0"/>
-      <CalculatorButton id="decimal: handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="."/>
+      <CalculatorButton id="decimal" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="."/>
       <CalculatorButton id="equals" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="="/>
     </div>
 
@@ -92,6 +92,17 @@ class Calculator extends React.Component {
           return {
             button_presses: [],
             display: sum
+          }
+        }
+      })
+    } else if (event.target.value === ".") {
+      console.log("Pressed decimal")
+      this.setState(prevState => {
+        console.log(prevState.button_presses.includes("."))
+        if (false === prevState.button_presses.includes(".")) {
+          return {
+            button_presses: [...prevState.button_presses, "."],
+            display: prevState.display + "."
           }
         }
       })
