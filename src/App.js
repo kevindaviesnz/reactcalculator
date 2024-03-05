@@ -1,17 +1,38 @@
 
-import './App.css';
+// import './App.css';
 import React from 'react';
 
 // npm install mathjs
 import * as math from 'mathjs'
 
-const CalculatorButton = (props) => {
+// @see https://react-bootstrap.netlify.app/docs/getting-started/introduction
+// npm install react-bootstrap bootstrap
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+function CalculatorButton(props) {
   return (
-    <button className="calculatorButton" key={"b"+props.button_number} onClick={props.handleCalculatorButtonClick} value={props.button_number}>
+    <>
+      <style type="text/css">
+        {`
+    .btn-flat {
+      background-color: orange;
+      color: white;
+    }
+
+    .btn-xxl {
+      padding: 1rem 1.5rem;
+      font-size: 1.5rem;
+    }
+    `}
+      </style>
+    <Button variant="flat" size="xxl" className="calculatorButton" key={"b"+props.button_number} onClick={props.handleCalculatorButtonClick} value={props.button_number}>
       {props.button_number}
-    </button>
+    </Button>
+    </>
   );
-};
+}
+
 
 const CalcPanel = (props) => {
   return <div>
