@@ -37,6 +37,13 @@
   }
 }
 
+#calculator{
+  width: 200px;
+  border: 1px solid blue;
+  padding: 1px
+}
+
 .calculatorDisplay {
-  background-color:darkorange
+  background-color:darkorange;
+  text-align: right
 }

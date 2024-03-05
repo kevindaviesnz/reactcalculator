@@ -7,7 +7,7 @@ import * as math from 'mathjs'
 
 const CalculatorButton = (props) => {
   return (
-    <button key={"b"+props.button_number} onClick={props.handleCalculatorButtonClick} value={props.button_number}>
+    <button className="calculatorButton" key={"b"+props.button_number} onClick={props.handleCalculatorButtonClick} value={props.button_number}>
       {props.button_number}
     </button>
   );
@@ -125,7 +125,7 @@ class Calculator extends React.Component {
   }
 
   render() {
-    return <div>
+    return <div id="calculator">
       <CalculatorDisplay show={this.state.display} />
       <CalcPanel handleCalculatorButtonClick={this.handleCalculatorButtonClick} />
     </div>
