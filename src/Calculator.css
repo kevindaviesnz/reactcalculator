@@ -22,8 +22,9 @@
   .calculatorDisplay > .alert {
     margin-bottom: 1px !important;
     text-align: right;
-    display: flex;
     width:98%;
   }
   
-  
+  .calcPanel > .btn-group {
+    width: 100%
+  }

@@ -32,9 +32,9 @@ function CalculatorButton(props) {
 
 const CalcPanel = (props) => {
 
-  return <div>
-      <ButtonToolbar>
-        <ButtonGroup className="me-2">
+  return <div className="calcPanel" >
+      <ButtonToolbar >
+      <ButtonGroup className="me-2" style={{ width: "100%" }}>
           <CalculatorButton id="clear" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="AC"/>
           <CalculatorButton button_number="+/-"/>
           <CalculatorButton button_number="%"/>
@@ -43,7 +43,7 @@ const CalcPanel = (props) => {
       </ButtonToolbar>
 
       <ButtonToolbar>
-        <ButtonGroup className="me-2">
+        <ButtonGroup className="me-2" style={{ width: "100%" }}>
           <CalculatorButton id="seven" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="7"/>
           <CalculatorButton id="eight" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="8"/>
           <CalculatorButton id="nine" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="9"/>
@@ -52,7 +52,7 @@ const CalcPanel = (props) => {
       </ButtonToolbar>
 
       <ButtonToolbar>
-        <ButtonGroup className="me-2">
+        <ButtonGroup className="me-2" style={{ width: "100%" }}>
           <CalculatorButton id="four" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="4"/>
           <CalculatorButton id="five" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="5"/>
           <CalculatorButton id="six" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="6"/>
@@ -61,7 +61,7 @@ const CalcPanel = (props) => {
       </ButtonToolbar>
 
       <ButtonToolbar>
-        <ButtonGroup className="me-2">
+        <ButtonGroup className="me-2" style={{ width: "100%" }}>
           <CalculatorButton id="one" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="1"/>
           <CalculatorButton id="two" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="2"/>
           <CalculatorButton id="three" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="3"/>
@@ -70,7 +70,7 @@ const CalcPanel = (props) => {
       </ButtonToolbar>
 
       <ButtonToolbar>
-        <ButtonGroup className="me-2">
+        <ButtonGroup className="me-2" style={{ width: "100%" }}>
           <CalculatorButton button_id="zero" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="0"/>
           <CalculatorButton id="decimal" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="."/>
           <CalculatorButton id="equals" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="="/>
@@ -156,10 +156,10 @@ class Calculator extends React.Component {
   }
 
   render() {
-    return <Card id="calculator">
-            <ListGroup id="listGroup" style={{backgroundColor: "purple", width: "auto", margin: "0px"}}>
-              <ListGroup.Item style={{width: "auto"}}><CalculatorDisplay show={this.state.display} /></ListGroup.Item>
-              <ListGroup.Item style={{width: "auto"}}><CalcPanel handleCalculatorButtonClick={this.handleCalculatorButtonClick} /></ListGroup.Item>
+    return <Card id="calculator" style={{width:"100%"}}>
+            <ListGroup id="listGroup" style={{backgroundColor: "purple", width: "100%", margin: "0px"}}>
+              <ListGroup.Item style={{width: "100%"}}><CalculatorDisplay show={this.state.display} /></ListGroup.Item>
+              <ListGroup.Item style={{width: "100%"}}><CalcPanel handleCalculatorButtonClick={this.handleCalculatorButtonClick} /></ListGroup.Item>
             </ListGroup>
           </Card>
 
@@ -173,9 +173,9 @@ class Calculator extends React.Component {
 function App(props) {
   return (
     <div>
-    <h1>Calculator Demo</h1>
-    <div style={{backgroundColor: "orange", width: "20%"}}><Calculator /></div>
-    <div><Calculator /></div>
+      <h1>Calculator Demo</h1>
+      <div style={{ width: "400px", margin: "50px"}}><Calculator /></div>
+      <div style={{width: "500px", margin: "50px"}}><Calculator /></div>
     </div>
   );
 }
