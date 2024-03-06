@@ -33,7 +33,7 @@ package.json:
 "scripts": {
   "predeploy": "npm run build",
   "deploy": "gh-pages -d build",
-   "build": "react-scripts build --output-path=docs",
+   "build": "react-scripts build",
    "test": "react-scripts test",
   "eject": "react-scripts eject"
   ...
@@ -42,7 +42,10 @@ package.json:
 
 }
 npm run build
-git add . etc
+git add .
+git commit -m "Add build files for GitHub Pages deployment"
+git push origin gh-pages
 npm run deploy
 github -> reactcalculator -> settings -> pages -> select gh-pages as branch
 
+https://kevindaviesnz.github.io/reactcalculator/
