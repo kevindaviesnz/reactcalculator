@@ -24,7 +24,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 function CalculatorButton(props) {
   return (
     <Button id={props.button_id} size="lg" variant="secondary" className="calculatorButton" key={"b"+props.button_number} onClick={props.handleCalculatorButtonClick} value={props.button_number}>
-      {props.button_number}
+      {props.button_render}
     </Button>
   );
 }
@@ -35,45 +35,45 @@ const CalcPanel = (props) => {
   return <div className="calcPanel" >
       <ButtonToolbar >
       <ButtonGroup className="me-2" style={{ width: "100%" }}>
-          <CalculatorButton id="clear" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="AC"/>
-          <CalculatorButton button_number="+/-"/>
-          <CalculatorButton button_number="%"/>
-          <CalculatorButton id="divide" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="/"/>
+          <CalculatorButton id="clear" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="AC" button_render="AC"/>
+          <CalculatorButton button_number="+/-" button_render="+/-"/>
+          <CalculatorButton button_number="%" button_render="%"/>
+          <CalculatorButton id="divide" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="/" button_render="÷"/>
         </ButtonGroup>
       </ButtonToolbar>
 
       <ButtonToolbar>
         <ButtonGroup className="me-2" style={{ width: "100%" }}>
-          <CalculatorButton id="seven" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="7"/>
-          <CalculatorButton id="eight" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="8"/>
-          <CalculatorButton id="nine" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="9"/>
-          <CalculatorButton id="multiply" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="*"/>
+          <CalculatorButton id="seven" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="7" button_render="7"/>
+          <CalculatorButton id="eight" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="8" button_render="8"/>
+          <CalculatorButton id="nine" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="9" button_render="9"/>
+          <CalculatorButton id="multiply" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="*" button_render="×"/>
         </ButtonGroup>
       </ButtonToolbar>
 
       <ButtonToolbar>
         <ButtonGroup className="me-2" style={{ width: "100%" }}>
-          <CalculatorButton id="four" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="4"/>
-          <CalculatorButton id="five" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="5"/>
-          <CalculatorButton id="six" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="6"/>
-          <CalculatorButton id="subtract" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="-"/>
+          <CalculatorButton id="four" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="4" button_render="4"/>
+          <CalculatorButton id="five" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="5" button_render="5"/>
+          <CalculatorButton id="six" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="6" button_render="6"/>
+          <CalculatorButton id="subtract" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="-" button_render="-"/>
         </ButtonGroup>
       </ButtonToolbar>
 
       <ButtonToolbar>
         <ButtonGroup className="me-2" style={{ width: "100%" }}>
-          <CalculatorButton id="one" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="1"/>
-          <CalculatorButton id="two" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="2"/>
-          <CalculatorButton id="three" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="3"/>
-          <CalculatorButton id="add" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="+"/>
+          <CalculatorButton id="one" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="1" button_render="1"/>
+          <CalculatorButton id="two" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="2" button_render="2"/>
+          <CalculatorButton id="three" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="3" button_render="3"/>
+          <CalculatorButton id="add" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="+" button_render="+"/>
         </ButtonGroup>
       </ButtonToolbar>
 
       <ButtonToolbar>
         <ButtonGroup className="me-2" style={{ width: "100%" }}>
-          <CalculatorButton button_id="zero" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="0"/>
-          <CalculatorButton id="decimal" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="."/>
-          <CalculatorButton id="equals" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="="/>
+          <CalculatorButton button_id="zero" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="0" button_render="0"/>
+          <CalculatorButton id="decimal" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="." button_render="."/>
+          <CalculatorButton id="equals" handleCalculatorButtonClick={props.handleCalculatorButtonClick} button_number="=" button_render="="/>
         </ButtonGroup>
       </ButtonToolbar>
 
