@@ -1,0 +1,29 @@
+
+.calculatorButton {
+    min-width: 90px; 
+    border: 1px solid darkgray !important;
+    flex-grow: 1; /* Makes buttons grow to fill the parent */
+    text-align: center; /* Ensures text is centered */
+  }
+  
+  #zero {
+    min-width: 180px;
+  }
+  
+  #calculator {
+    width: fit-content
+  }
+  
+  .calculatorDisplay {
+    display: flex;
+    align-items: center; /* Align vertically */
+  }
+
+  .calculatorDisplay > .alert {
+    margin-bottom: 1px !important;
+    text-align: right;
+    display: flex;
+    width:98%;
+  }
+  
+  
