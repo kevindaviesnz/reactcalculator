@@ -41,6 +41,8 @@ package.json:
 },
 
 }
+npm run build
+git add . etc
 npm run deploy
 github -> reactcalculator -> settings -> pages -> select gh-pages as branch
 
