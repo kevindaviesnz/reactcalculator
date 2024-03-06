@@ -132,18 +132,32 @@ class Calculator extends React.Component {
       })
     } else if ("=" === event.target.value) {
       this.setState(prevState => {
-        if (prevState.button_presses.length > 0) {
-          if ("="===prevState.button_presses[prevState.button_presses.length-1]){
+        console.log("Pressed equals")
+        const last_button_pressed = prevState.button_presses[prevState.button_presses.length - 1]
+        console.log(last_button_pressed)
+        console.log(prevState.button_presses)
+        // if no operands then do nothing
+        if (/^-?\d+(\.\d+)?(e[-+]?\d+)?$/i.test(prevState.button_presses.join(''))) {
+          console.log(prevState.button_presses.join(''))
+          console.log("We haven't pressed any operands so don't do anything")
+          return
+        }
+        if (prevState.button_presses.length > 1) {
+          if (["+", "-", "/", "*"].includes(last_button_pressed)) {
             prevState.button_presses.pop()
           }
-          const last_number = prevState.button_presses[prevState.button_presses.length-1]
+          if ("=" === prevState.button_presses[prevState.button_presses.length - 1]) {
+            prevState.button_presses.pop()
+          }
+          const last_number = prevState.button_presses[prevState.button_presses.length - 1]
           const sum = math.evaluate(prevState.button_presses.join('')) + ""
-          const operand = prevState.button_presses[prevState.button_presses.length-2]
+          const operand = prevState.button_presses[prevState.button_presses.length - 2]
           return {
             button_presses: [sum * 1, operand, last_number, "="],
             display: sum
           }
         }
+      
       })
     } else if (event.target.value === ".") {
       console.log("Pressed decimal")
