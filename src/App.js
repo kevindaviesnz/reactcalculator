@@ -113,9 +113,18 @@ class Calculator extends React.Component {
     } else if (["+", "-", "/", "*"].includes(event.target.value)) {
       this.setState(prevState => {
         // Prevent "* +" etc
-        if (["+", "-", "/", "*"].includes(prevState.button_presses[prevState.button_presses.length-1])) {
-            prevState.button_presses.pop()
+        const last_button_pressed = prevState.button_presses[prevState.button_presses.length-1]
+        console.log("operand pressed")
+        console.log(last_button_pressed)
+        console.log(prevState.button_presses)
+        if (["+", "-", "/", "*"].includes(last_button_pressed)) {
+          prevState.button_presses.pop()
         }
+        if ("=" === last_button_pressed){
+          console.log("reseting button pressed as last button pressed was an equals sign")
+          prevState.button_presses = [prevState.button_presses[0]]
+        }
+        console.log(prevState.button_presses)
         return {
           button_presses: [...prevState.button_presses, event.target.value],
           display: prevState.display
@@ -124,10 +133,14 @@ class Calculator extends React.Component {
     } else if ("=" === event.target.value) {
       this.setState(prevState => {
         if (prevState.button_presses.length > 0) {
+          if ("="===prevState.button_presses[prevState.button_presses.length-1]){
+            prevState.button_presses.pop()
+          }
           const last_number = prevState.button_presses[prevState.button_presses.length-1]
           const sum = math.evaluate(prevState.button_presses.join('')) + ""
+          const operand = prevState.button_presses[prevState.button_presses.length-2]
           return {
-            button_presses: [sum * 1, "+", last_number],
+            button_presses: [sum * 1, operand, last_number, "="],
             display: sum
           }
         }
@@ -152,6 +165,8 @@ class Calculator extends React.Component {
         }
       })
     }
+
+    console.log(this.state.button_presses)
 
   }
 
